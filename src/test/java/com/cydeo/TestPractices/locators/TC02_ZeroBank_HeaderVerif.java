@@ -1,4 +1,4 @@
-package com.cydeo.locators;
+package com.cydeo.TestPractices.locators;
 
 /*
 TC #2: Zero Bank header verification

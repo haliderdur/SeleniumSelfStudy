@@ -1,11 +1,12 @@
-package com.cydeo.alerts_iframes_windows_Practice;
+package com.cydeo.TestPractices.alerts_iframes_windows_Practice;
 
-//TC #2: Confirmation alert practice
+//TC #1: Information alert practice
 //1. Open browser
 //2. Go to website: https://practice.cydeo.com/javascript_alerts
-//3. Click to “Click for JS Confirm” button
+//3. Click to “Click for JS Alert” button
 //4. Click to OK button from the alert
-//5. Verify “You clicked: Ok” text is displayed.
+//5. Verify “You successfully clicked an alert” text is displayed.
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
@@ -20,8 +21,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC2_Confirmation_Alert_Practice {
-
+public class TC1_Information_Alert_Practice {
     WebDriver driver;
 
     @BeforeMethod
@@ -29,7 +29,6 @@ public class TC2_Confirmation_Alert_Practice {
         //1. Open browser
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -43,16 +42,37 @@ public class TC2_Confirmation_Alert_Practice {
     }
 
     @Test
-    public void jsAlertTest_2() {
-        WebElement confirmAlertbtn = driver.findElement(By.xpath("//button[.='Click for JS Confirm']"));
-        //3. Click to “Click for JS Confirm” button
-        confirmAlertbtn.click();
+    public void jsAlertTest_1() {
+        WebElement jsAlertbtn = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
+        //3. Click to “Click for JS Alert” button
+        jsAlertbtn.click();
 
         //4. Click to OK button from the alert
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
+        Alert jsAlert = driver.switchTo().alert();
+        jsAlert.accept();
 
-        Assert.assertTrue(driver.findElement(By.id("result")).isDisplayed());
+        //5. Verify “You successfully clicked an alert” text is displayed.
+        WebElement resultText = driver.findElement(By.xpath("//p[@id='result']"));
+
+        Assert.assertTrue(resultText.isDisplayed());
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

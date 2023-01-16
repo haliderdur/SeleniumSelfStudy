@@ -29,5 +29,20 @@ public class WebDriverFactory {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;
+ /*
+        if (browserName.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
+
+        } else if (browserName.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+
+        } else {
+            System.out.println("Given browser type does not exist or does not supported: " + browserName);
+            System.out.println("Driver = null");
+            return null;
+        }
+  */
     }
 }

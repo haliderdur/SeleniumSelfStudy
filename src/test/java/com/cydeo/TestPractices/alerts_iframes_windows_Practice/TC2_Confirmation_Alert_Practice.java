@@ -1,14 +1,12 @@
-package com.cydeo.alerts_iframes_windows_Practice;
+package com.cydeo.TestPractices.alerts_iframes_windows_Practice;
 
-//TC #3: Information alert practice
+//TC #2: Confirmation alert practice
 //1. Open browser
 //2. Go to website: https://practice.cydeo.com/javascript_alerts
-//3. Click to “Click for JS Prompt” button
-//4. Send “hello” text to alert
-//5. Click to OK button from the alert
-//6. Verify “You entered:  hello” text is displayed.
+//3. Click to “Click for JS Confirm” button
+//4. Click to OK button from the alert
+//5. Verify “You clicked: Ok” text is displayed.
 
-import com.beust.ah.A;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -22,7 +20,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC3_Information_Alert_Practice2 {
+public class TC2_Confirmation_Alert_Practice {
 
     WebDriver driver;
 
@@ -31,6 +29,7 @@ public class TC3_Information_Alert_Practice2 {
         //1. Open browser
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -44,22 +43,16 @@ public class TC3_Information_Alert_Practice2 {
     }
 
     @Test
-    public void jsAlertTest_3() {
+    public void jsAlertTest_2() {
+        WebElement confirmAlertbtn = driver.findElement(By.xpath("//button[.='Click for JS Confirm']"));
+        //3. Click to “Click for JS Confirm” button
+        confirmAlertbtn.click();
 
-        //3. Click to “Click for JS Prompt” button
-        WebElement jsPromptBtn = driver.findElement(By.xpath("//button[.='Click for JS Prompt']"));
-        jsPromptBtn.click();
-
-        //4. Send “hello” text to alert
+        //4. Click to OK button from the alert
         Alert alert = driver.switchTo().alert();
-        alert.sendKeys("Hello");
-
-        //5. Click to OK button from the alert
         alert.accept();
 
-        //6. Verify “You entered:  hello” text is displayed.
-        WebElement helloText = driver.findElement(By.xpath("//p[.='You entered: Hello']"));
-
-        Assert.assertTrue(helloText.isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("result")).isDisplayed());
     }
+
 }

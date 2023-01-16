@@ -1,4 +1,4 @@
-package com.cydeo.locators;
+package com.cydeo.TestPractices.locators;
 
 /*
 TC #3: Back and forth navigation
