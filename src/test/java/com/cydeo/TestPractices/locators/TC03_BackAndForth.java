@@ -45,6 +45,7 @@ public class TC03_BackAndForth {
             System.out.println("Gmail actual title(" + actualGmailTitle + ") is not expected as \"" + expectedGmailTitle + "\" = FAILED!!!");
         }
 
+
         Thread.sleep(1500);
 
         driver.navigate().back();

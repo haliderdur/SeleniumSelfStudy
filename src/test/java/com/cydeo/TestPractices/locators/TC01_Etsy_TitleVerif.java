@@ -21,6 +21,7 @@ public class TC01_Etsy_TitleVerif {
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+
         driver.get("https://www.etsy.com ");
         WebElement acceptButton = driver.findElement(By.cssSelector("#gdpr-single-choice-overlay " +
                 "> div > div.wt-overlay__footer.wt-pt-xs-3 > div:nth-child(2) > button"));

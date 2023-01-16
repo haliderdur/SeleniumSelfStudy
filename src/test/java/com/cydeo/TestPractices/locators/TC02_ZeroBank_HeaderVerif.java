@@ -20,6 +20,7 @@ public class TC02_ZeroBank_HeaderVerif {
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+
         driver.get("http://zero.webappsecurity.com/login.html");
 
         String actualHeader = driver.findElement(By.tagName("h3")).getText();
